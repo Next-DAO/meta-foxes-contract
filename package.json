@@ -21,7 +21,8 @@
     "chain": "hardhat node --network hardhat --no-deploy",
     "verify": "hardhat etherscan-verify",
     "solhint": "solhint contracts/**/*.sol",
-    "export-abi": "hardhat export"
+    "export-abi": "hardhat export",
+    "metadata": "node scripts/generate_metadata.js"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.5.0",
