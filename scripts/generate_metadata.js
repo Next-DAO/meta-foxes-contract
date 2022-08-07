@@ -1,20 +1,29 @@
 const fs = require("fs");
 
-const indexes = [...Array(43).keys()];
-const metadataPath = "./metadata_old/";
-const desc = "Connect the dots.";
+const ipfsHash = "QmXaKiE2tbbKNuXSzVaKdWmBL86fYyzUDcz1bHuNcNY5q3";
+const indexes = [...Array(73).keys()];
+const metadataPath = "./metadata/";
+const femaleIds = [
+  2, 12, 10, 17, 28, 34, 36, 44, 45, 46, 47, 51, 55, 57, 59, 65, 73,
+];
+const desc =
+  "Meta Foxes Genesis is a collection of handmade NFTs. Specially customized for the original NextDAO early supporters.";
 
 const main = async () => {
   for (const index of indexes) {
+    const id = index + 1;
+    const gender = femaleIds.includes(id) ? "Female" : "Male";
     const metadata = {
-      name: `F.O.N DAO (Family of Next) #${index}`,
+      name: `Meta Fox #${id}`,
       description: desc,
-      image:
-        "ipfs://bafkreiegkzmxpe5mrl5hhg7wlxuxsqs5wsfjl5s762nplnpuzqvbo2rstm",
-      attributes: [],
+      image: `ipfs://${ipfsHash}/${id}.png`,
+      attributes: [
+        { trait_type: "Generation", value: "Genesis" },
+        { trait_type: "Gender", value: gender },
+      ],
     };
 
-    await fs.writeFileSync(`${metadataPath}${index}`, JSON.stringify(metadata));
+    await fs.writeFileSync(`${metadataPath}${id}`, JSON.stringify(metadata));
   }
 };
 
