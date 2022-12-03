@@ -38,7 +38,7 @@ const generateToken = async (walletAddress) => {
   return { salt, token };
 };
 
-const wallets = [];
+const wallets = ["0x44A6A0F309B4970D016c49c90668199d45406E60"];
 
 const main = async () => {
   for (let wallet of wallets) {
