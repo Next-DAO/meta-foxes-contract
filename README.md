@@ -1,4 +1,4 @@
-# Meta Foxes
+# Meta Foxes (Smart Contract)
 
 ```
 ..................................................
