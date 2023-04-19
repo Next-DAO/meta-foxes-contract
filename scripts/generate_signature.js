@@ -59,7 +59,9 @@ const main = async () => {
     `./data/${chainENV}_signatures.json`,
     JSON.stringify(data, null, 4),
     (err) => {
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
       process.exit(0);
     }
   );
