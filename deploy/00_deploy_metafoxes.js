@@ -1,11 +1,11 @@
 module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
-  const initBaseURL = "ipfs://QmTkgVTLcqU8R5jJg6NuU5MwupmiWcyESMDsDsrwkMKR4M/";
+  const initBaseURL = "ipfs://QmWWrqG39GkwZC4R7iEUGKoRH3EhrNuVd4t4nBNs8rNhyd/";
 
   await deploy("MetaFoxesGenesis", {
     from: deployer,
-    args: [deployer, 43, 1, initBaseURL],
+    args: [deployer, 500, 1, initBaseURL],
     log: true,
   });
 };
