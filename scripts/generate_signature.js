@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const crypto = require("crypto");
 const { ethers } = require("ethers");
 const mainnetABI = require("../abi/mainnet.json");
+const goerliABI = require("../abi/goerli.json");
 
 dotenv.config();
 
@@ -18,7 +19,10 @@ const provider = new ethers.providers.JsonRpcProvider(
 );
 const signerWallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
-const contractAddress = mainnetABI.contracts.MetaFoxesGenesis.address;
+let contractAddress = mainnetABI.contracts.MetaFoxesGenesis.address;
+if (process.env.CHAIN_ENV === "goerli") {
+  contractAddress = goerliABI.contracts.MetaFoxesGenesis.address;
+}
 
 const generateToken = async (walletAddress) => {
   // create random salt
@@ -38,7 +42,7 @@ const generateToken = async (walletAddress) => {
   return { salt, token };
 };
 
-const wallets = ["0x44A6A0F309B4970D016c49c90668199d45406E60"];
+const wallets = [""];
 
 const main = async () => {
   for (let wallet of wallets) {
