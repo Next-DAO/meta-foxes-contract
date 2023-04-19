@@ -19,10 +19,9 @@ const provider = new ethers.providers.JsonRpcProvider(
 );
 const signerWallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
-let contractAddress = mainnetABI.contracts.MetaFoxesGenesis.address;
-if (process.env.CHAIN_ENV === "goerli") {
-  contractAddress = goerliABI.contracts.MetaFoxesGenesis.address;
-}
+const chainENV = process.env.CHAIN_ENV === "goerli" ? "goerli" : "mainnet";
+const abi = chainENV === "goerli" ? goerliABI : mainnetABI;
+const contractAddress = abi.contracts.MetaFoxesGenesis.address;
 
 const generateToken = async (walletAddress) => {
   // create random salt
@@ -42,16 +41,28 @@ const generateToken = async (walletAddress) => {
   return { salt, token };
 };
 
-const wallets = [""];
+const wallets = [];
 
 const main = async () => {
+  const data = {};
+
   for (let wallet of wallets) {
     const { salt, token } = await generateToken(wallet);
     console.log("====== Signature ======");
     console.log("Wallet address: ", wallet);
     console.log("Salt: ", salt);
     console.log("Token: ", token);
+    data[wallet.toLowerCase()] = token;
   }
+
+  await fs.writeFile(
+    `./data/${chainENV}_signatures.json`,
+    JSON.stringify(data, null, 4),
+    (err) => {
+      console.log(err);
+      process.exit(0);
+    }
+  );
 };
 
 main();
