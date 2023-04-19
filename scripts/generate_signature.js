@@ -52,7 +52,7 @@ const main = async () => {
     console.log("Wallet address: ", wallet);
     console.log("Salt: ", salt);
     console.log("Token: ", token);
-    data[wallet.toLowerCase()] = token;
+    data[wallet.toLowerCase()] = { salt, token };
   }
 
   await fs.writeFile(
