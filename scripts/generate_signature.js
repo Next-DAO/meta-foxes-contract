@@ -55,8 +55,11 @@ const main = async () => {
     data[wallet.toLowerCase()] = { salt, token };
   }
 
+  const filename =
+    chainENV === "mainnet" ? "signatures" : `${chainENV}_signatures`;
+
   await fs.writeFile(
-    `./data/${chainENV}_signatures.json`,
+    `./data/${filename}.json`,
     JSON.stringify(data, null, 4),
     (err) => {
       if (err) {
