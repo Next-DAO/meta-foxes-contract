@@ -41,7 +41,14 @@ const generateToken = async (walletAddress) => {
   return { salt, token };
 };
 
-const wallets = [];
+const wallets = [
+  "0x0ac1c1c174c0177bd7ec4b1067a2fc4563d39854",
+  "0x8295c7d69e1868310acc1b8789094ec7f23a4bb4",
+  "0x1B297a4fD9212E8f179c0Dd34330745041D498fF",
+  "0x3BA4F680E3ec4C321985c9407F0CE36815DBE192",
+  "0x63fb324257b717F6699523EfDBe1DE5a657538C8",
+  "0x331E5d9C3F48A73A46aD73C4d998c182A7f461E6",
+];
 
 const main = async () => {
   const data = {};
