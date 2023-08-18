@@ -1,13 +1,13 @@
 const fs = require("fs");
 
-const ipfsHash = "QmcAs2PiqiN2Er1AK3Q2BjkUxumSCrcHpUjhQnDPmaRiYz";
+const ipfsHash = "QmWXfj9jRNDTkFGXVRUivLZCTXzfwVm8UHySKniicuSrmi";
 const indexes = [...Array(500).keys()];
-const revealedUntil = 109;
+const revealedUntil = 110;
 const genesisUtil = 90;
 const metadataPath = "./metadata/";
 const femaleIds = [
   12, 10, 17, 28, 34, 36, 44, 45, 46, 47, 51, 55, 57, 59, 65, 73, 74, 76, 81,
-  82, 83, 86, 87, 88, 89, 92, 97, 104
+  82, 83, 86, 87, 88, 89, 92, 97, 104, 110,
 ];
 const desc =
   "Meta Foxes is an NFT collection initiated by the NextDAO community. Every Meta Fox is painstakingly crafted and customized by artists for its owner, without using any artificial intelligence or automation technology. We are committed to using unique designs for each NFT, highlighting its unique story and personality, making it a valuable collectible.";
