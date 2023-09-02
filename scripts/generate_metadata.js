@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const ipfsHash = "QmWXfj9jRNDTkFGXVRUivLZCTXzfwVm8UHySKniicuSrmi";
+const ipfsHash = "QmWJGzX2q76UKVivdUyv4p2DrhrqStieupXQUofiYgDDCX";
 const indexes = [...Array(500).keys()];
-const revealedUntil = 110;
+const revealedUntil = 111;
 const genesisUtil = 90;
 const metadataPath = "./metadata/";
 const femaleIds = [
