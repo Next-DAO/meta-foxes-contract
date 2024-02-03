@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const ipfsHash = "QmWUynKtSQp6g7iJPQ3RyMUe3GsfUasqQsaNgyD669X51r";
+const ipfsHash = "QmNa1K5UJSvqgwQsBoCHXvVKERo7kKWivs57JeipXtsvBr";
 const indexes = [...Array(500).keys()];
-const revealedUntil = 153;
+const revealedUntil = 157;
 const genesisUtil = 90;
 const metadataPath = "./metadata/";
 const femaleIds = [
@@ -28,14 +28,14 @@ const main = async () => {
       : `Meta Fox #${id}`;
 
     const image =
-      index < revealedUntil || id === 164 || id === 155 || id === 156 || id === 162 || id === 165 || id === 174 || id === 167 || id === 172 || id === 173
+      index < revealedUntil || id === 164 || id === 162 || id === 165 || id === 174 || id === 167 || id === 172 || id === 173
         ? `ipfs://${ipfsHash}/${id}.png`
         : `ipfs://${ipfsHash}/unrevealed.png`;
 
     const generation = index < genesisUtil ? "Genesis" : "Gen II";
     const attributes = [{ trait_type: "Generation", value: generation }];
 
-    if (index < revealedUntil || id === 164 || id === 155 || id === 156 || id === 162 || id === 165 || id === 174 || id === 167 || id === 172 || id === 173) {
+    if (index < revealedUntil || id === 164 || id === 162 || id === 165 || id === 174 || id === 167 || id === 172 || id === 173) {
       attributes.push({ trait_type: "Gender", value: gender });
     }
 
