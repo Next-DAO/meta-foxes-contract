@@ -1,14 +1,14 @@
 const fs = require("fs");
 
-const ipfsHash = "QmNa1K5UJSvqgwQsBoCHXvVKERo7kKWivs57JeipXtsvBr";
+const ipfsHash = "Qmd3MHBWFJ8ixDDeFESbrkrsWXWET57VtfZ3GkDWNvum9k";
 const indexes = [...Array(500).keys()];
-const revealedUntil = 157;
+const revealedUntil = 169;
 const genesisUtil = 90;
 const metadataPath = "./metadata/";
 const femaleIds = [
   12, 10, 17, 28, 34, 36, 44, 45, 46, 47, 51, 55, 57, 59, 65, 73, 74, 76, 81,
   82, 83, 86, 87, 88, 89, 92, 97, 104, 110, 113, 119, 121, 129, 130, 132, 137,
-  138, 144, 155, 167, 172
+  138, 144, 155, 167, 168, 172
 ];
 const desc =
   "Meta Foxes is an NFT collection initiated by the NextDAO community. Every Meta Fox is painstakingly crafted and customized by artists for its owner, without using any artificial intelligence or automation technology. We are committed to using unique designs for each NFT, highlighting its unique story and personality, making it a valuable collectible.";
@@ -28,14 +28,14 @@ const main = async () => {
       : `Meta Fox #${id}`;
 
     const image =
-      index < revealedUntil || id === 164 || id === 162 || id === 165 || id === 174 || id === 167 || id === 172 || id === 173
+      index < revealedUntil || id === 174 || id === 172 || id === 173
         ? `ipfs://${ipfsHash}/${id}.png`
         : `ipfs://${ipfsHash}/unrevealed.png`;
 
     const generation = index < genesisUtil ? "Genesis" : "Gen II";
     const attributes = [{ trait_type: "Generation", value: generation }];
 
-    if (index < revealedUntil || id === 164 || id === 162 || id === 165 || id === 174 || id === 167 || id === 172 || id === 173) {
+    if (index < revealedUntil || id === 174 || id === 172 || id === 173) {
       attributes.push({ trait_type: "Gender", value: gender });
     }
 
