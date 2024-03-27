@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const ipfsHash = "Qmd3MHBWFJ8ixDDeFESbrkrsWXWET57VtfZ3GkDWNvum9k";
+const ipfsHash = "QmdLaMgPSXDQ6ncWyNwgP8EZ19nVsyYFZ8qXt99ycKzL4z";
 const indexes = [...Array(500).keys()];
-const revealedUntil = 169;
+const revealedUntil = 177;
 const genesisUtil = 90;
 const metadataPath = "./metadata/";
 const femaleIds = [
@@ -27,15 +27,12 @@ const main = async () => {
       ? `Meta Fox #${id} (STOLEN! DO NOT BUY!)`
       : `Meta Fox #${id}`;
 
-    const image =
-      index < revealedUntil || id === 174 || id === 172 || id === 173
-        ? `ipfs://${ipfsHash}/${id}.png`
-        : `ipfs://${ipfsHash}/unrevealed.png`;
+    const image = index < revealedUntil ? `ipfs://${ipfsHash}/${id}.png` : `ipfs://${ipfsHash}/unrevealed.png`;
 
     const generation = index < genesisUtil ? "Genesis" : "Gen II";
     const attributes = [{ trait_type: "Generation", value: generation }];
 
-    if (index < revealedUntil || id === 174 || id === 172 || id === 173) {
+    if (index < revealedUntil) {
       attributes.push({ trait_type: "Gender", value: gender });
     }
 
