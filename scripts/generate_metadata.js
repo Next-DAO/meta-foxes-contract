@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const ipfsHash = "QmS7LJCu2iEzW3RdGdmP9fPSvHdnm6q7fN24V9aqQisFkB";
+const ipfsHash = "QmcpEcyCWNwGRFdvcpSxzJefwuq1JkPDZfiWLiq3U47tnW";
 const indexes = [...Array(500).keys()];
 const revealedUntil = 179;
 const genesisUtil = 90;
@@ -20,6 +20,7 @@ const stolenDesc =
 const main = async () => {
   for (const index of indexes) {
     const id = index + 1;
+    const urgent = id === 185 || id === 189 || id === 193 || id === 199;
     const gender = femaleIds.includes(id) ? "Female" : "Male";
 
     const _desc = stolenIds.includes(id) ? stolenDesc : desc;
@@ -28,14 +29,14 @@ const main = async () => {
       : `Meta Fox #${id}`;
 
     const image =
-      index < revealedUntil || id === 185
+      index < revealedUntil || urgent
         ? `ipfs://${ipfsHash}/${id}.png`
         : `ipfs://${ipfsHash}/unrevealed.png`;
 
     const generation = index < genesisUtil ? "Genesis" : "Gen II";
     const attributes = [{ trait_type: "Generation", value: generation }];
 
-    if (index < revealedUntil || id === 185) {
+    if (index < revealedUntil || urgent) {
       attributes.push({ trait_type: "Gender", value: gender });
     }
 
