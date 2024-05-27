@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const ipfsHash = "QmS8bEEkDrZUBLBb9LzfzK2eLKCntV7weAsAjCJcA2sqAJ";
+const ipfsHash = "QmdDvSxjWB7aW44UCuoCEABjSpbgozU1BWEfbZ4UWG4zXr";
 const indexes = [...Array(200).keys()];
 const revealedUntil = 180;
 const genesisUtil = 90;
