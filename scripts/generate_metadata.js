@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const ipfsHash = "bafybeidrtyaai6vyvgj4aarslnvd6f243i2a6vs2t6m6vlrkqqd6bqiaoy";
+const ipfsHash = "bafybeici6pai767kzu4s3nlxkbp5dnpzag6scrcewcspjt4xgbr43pbh4q";
 const indexes = [...Array(222).keys()];
-const revealedUntil = 203;
+const revealedUntil = 204;
 const genesisUtil = 90;
 const metadataPath = "./metadata/";
 const femaleIds = [
@@ -21,7 +21,7 @@ const main = async () => {
   for (const index of indexes) {
     const id = index + 1;
 
-    const urgent = id === 208 || id === 210 || id === 216;
+    const urgent = id === 207 || id === 208 || id === 209 || id === 210 || id === 216;
 
     const gender = femaleIds.includes(id) ? "Female" : "Male";
 
