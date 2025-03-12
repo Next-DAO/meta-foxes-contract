@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const ipfsHash = "bafybeifdkmvyzzno3oodn4tlr2aezks3kzyn7qftgitgdy2w6mph2vwzea";
-const indexes = [...Array(222).keys()];
-const revealedUntil = 222;
+const ipfsHash = "bafybeiefcfzocxpengz5w4i23vnf6sp2b6fctvzcwknam535dil63yw7sq";
+const indexes = [...Array(223).keys()];
+const revealedUntil = 223;
 const genesisUtil = 90;
 const metadataPath = "./metadata/";
 const femaleIds = [
@@ -14,7 +14,7 @@ const femaleIds = [
 const desc =
   "Meta Foxes is an NFT collection initiated by the NextDAO community. Every Meta Fox is painstakingly crafted and customized by artists for its owner, without using any artificial intelligence or automation technology. We are committed to using unique designs for each NFT, highlighting its unique story and personality, making it a valuable collectible.";
 
-const stolenIds = [18, 21];
+const stolenIds = [18, 21, 111];
 const stolenDesc =
   "DO NOT BUY! THIS TOKEN WAS STOLEN IN A PHISHING ATTACK! IMAGE ALTERED BASED ON VOTES ON https://snapshot.box/#/s:nextdao.eth";
 
